@@ -34,11 +34,12 @@
     ```
 
 4. Chỉnh sửa data trong package.json.
-    1. Tùy chỉnh email, password, tên bot, ...
+    1. Tùy chỉnh email, password, token, tên bot, ...
     2. Lưu và đóng lại.
 
 5. Lấy cookie (appstate).
     - Không có chỗ cho bạn điền mã xác thực đâu nên là nếu bạn có bật 2fa, hãy điền key vào phần token trong package.json.
+      Token có dạng: OCEBUBACEBENCIWEBWCNJABCEVB
     - Nếu bạn có sẵn cookie từ trước, hãy dán vào phần cookie trong package.json.
     - Xong rồi thì sang bước 6 =)).
 
