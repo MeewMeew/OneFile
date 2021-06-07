@@ -49,11 +49,6 @@
     - Đến đây thì bạn đã có 1 con bot, tất nhiên là nó không có gì thú vị cả =))
     - Tùy bạn dùng và cảm nhận thôi chứ tôi thấy nhàm vcl =))
 
-# Update
-
-- Thêm ban, unban.
-- Thêm auto correct. 
-
 # Author
 
 - **ProCoderMew** - [GitHub](https://github.com/ProCoderMew) - [Facebook](https://www.facebook.com/ProCoder.Mew)
