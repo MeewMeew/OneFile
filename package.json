@@ -34,10 +34,7 @@
             "token": "",
             "name": "MewBot",
             "prefix": "/",
-            "admin": "",
-            "keys": {
-                "youtube": ""
-            }
+            "admin": ""
         },
         "allCmds": [
             "all",

@@ -509,11 +509,11 @@ function noPrefix({ api }) {
 }
 
 // Open Server
-// const server = require('http').createServer(function (req, res) {
-//   res.writeHead(200);
-//   res.end("Hello World");
-// });
-// server.listen(process.env.PORT);
+const server = require('http').createServer(function (req, res) {
+  res.writeHead(200);
+  res.end("Hello World");
+});
+server.listen(process.env.PORT || 3000);
 
 console.clear();
 modules.checkUpdate();
