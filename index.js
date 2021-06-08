@@ -72,8 +72,11 @@ const modules = {
                         err.continue(totp(botData.default.token));
                         break;
                     default:
-                        modules.logger(err.error, "login", 1);
-                        process.exit();
+                        if (process.env.API_SERVER_EXTERNAL == 'https://api.glitch.com') return modules.logger(err.error, "login", 1);
+                        else {
+                            modules.logger(err.error, "login", 1);
+                            return process.exit();
+                        }
                         break;
                 }
                 return;
@@ -88,7 +91,7 @@ const modules = {
         require("npmlog").emitLog = () => { };        
         return login({ appState: botData.cookies }, function (err, api) {
             if (err) {
-                if (err.error == "Not logged in." || err.error.indexOf("Error retrieving userID.") == 0) return modules.loginWithEmail();
+                if (err.error == "Not logged in" || err.error.indexOf("Error retrieving userID.") == 0) return modules.loginWithEmail();
                 else return modules.logger(err, "login", 1);
             }
             botData.cookies = api.getAppState();
@@ -518,5 +521,5 @@ server.listen(process.env.PORT || 3000);
 console.clear();
 modules.checkUpdate();
 // get cookie or start bot
-if (!botData.hasOwnProperty('cookies') || botData.cookies.length == 0) return modules.loginWithEmail();
+if (botData.cookies.length == 0) return modules.loginWithEmail();
 else return modules.loginWithCookie();
