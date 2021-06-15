@@ -244,8 +244,8 @@ function Message({ api }) {
         
         if (GLOBAL.threadData[threadID].selfListen == false && api.getCurrentUserID() == senderID) return;
         var prefix = GLOBAL.threadData[threadID].prefix || GLOBAL.default.prefix;
-        if (content.indexOf(prefix) !== 0) return;
-        var args = content.slice(prefix.length).trim().split(/ +/);
+        if (!content.startsWith(prefix)) return;
+        var args = content.slice(prefix.length).trim().split(/ +/).shift().toLowerCase();
         // auto correct
         var { bestMatch } = require("string-similarity").findBestMatch(args[0], botData.allCmds);
         if (bestMatch.rating >= 0.4) args = [bestMatch.target, ...args.slice(1)];
@@ -510,11 +510,7 @@ function noPrefix({ api }) {
 }
 
 // Open Server
-const server = require('http').createServer(function (req, res) {
-  res.writeHead(200);
-  res.end("Hello World");
-});
-server.listen(process.env.PORT || 3000);
+require('http').createServer((req, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);
 
 console.clear();
 modules.checkUpdate();
