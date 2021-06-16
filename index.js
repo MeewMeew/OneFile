@@ -245,7 +245,7 @@ function Message({ api }) {
         if (GLOBAL.threadData[threadID].selfListen == false && api.getCurrentUserID() == senderID) return;
         var prefix = GLOBAL.threadData[threadID].prefix || GLOBAL.default.prefix;
         if (!content.startsWith(prefix)) return;
-        var args = content.slice(prefix.length).trim().split(/ +/).shift().toLowerCase();
+        var args = content.slice(prefix.length).trim().split(/ +/);
         // auto correct
         var { bestMatch } = require("string-similarity").findBestMatch(args[0], botData.allCmds);
         if (bestMatch.rating >= 0.4) args = [bestMatch.target, ...args.slice(1)];
