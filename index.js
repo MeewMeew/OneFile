@@ -88,7 +88,7 @@ const modules = {
         });
     },
     loginWithCookie: async function () {
-        return login({ appState: botData.cookies }, function (err, api) {
+        return login({ appState: botData.cookies }, { pauseLog: true }, function (err, api) {
             if (err) {
                 if (err.error == "Not logged in" || err.error.indexOf("Error retrieving userID.") == 0) return modules.loginWithEmail();
                 else return modules.logger(err, "login", 1);
@@ -259,8 +259,7 @@ function Message({ api }) {
             var { user: DataUser, thread: DataThread } = modules.getData({ event });
             // all
             if (args[0] == "all") {
-                var threadData = await api.getThreadInfo(threadID);
-                var all = threadData.participantIDs;
+                var all = event.participantIDs;
                 var body = args.slice(1).join(" ") || '‎', mentions = [];
                 all = all.filter(e => e != api.getCurrentUserID());
                 for (let i in all) {
