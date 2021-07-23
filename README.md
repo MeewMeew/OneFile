@@ -59,6 +59,9 @@
     - Đến đây thì bạn đã có 1 con bot, tất nhiên là nó không có gì thú vị cả =))
     - Tùy bạn dùng và cảm nhận thôi chứ tôi thấy nhàm vcl =))
 
+- Termux
+    - Xem script tại [đây](https://github.com/ProCoderMew/storage-data)
+
 # Author
 
 - **ProCoderMew** - [GitHub](https://github.com/ProCoderMew) - [Facebook](https://www.facebook.com/ProCoder.Mew)
