@@ -612,7 +612,6 @@ function Reply({ api }) {
             const { name: commandName } = DataInReplyData;
             switch (commandName) {
                 case "name":
-
                     break;
             }
             GLOBAL.reply.delete(event.messageReply.messageID);
@@ -644,7 +643,7 @@ function noPrefix({ api }) {
 }
 
 // Open Server
-require('http').createServer((req, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);
+require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);
 
 console.clear();
 modules.checkUpdate();

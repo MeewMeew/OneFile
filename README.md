@@ -41,6 +41,15 @@
     - Không có chỗ cho bạn điền mã xác thực đâu nên là nếu bạn có bật 2fa, hãy điền key vào phần token trong package.json.
       Token có dạng: OCEBUBACEBENCIWEBWCNJABCEVB
     - Nếu bạn có sẵn cookie từ trước, hãy dán vào phần cookie trong package.json.
+        - Lỗi khi thêm cookies:
+            + Cookies có dạng
+                ```json
+                [{}, {}, {}, {}]
+                ```
+            + Nhầm lẫn: 
+                ```json
+                [[{}, {}, {}]]
+                ```
     - Xong rồi thì sang bước 6 =)).
 
 6. Chạy bot.
