@@ -30,7 +30,7 @@
 
 3. Cài đặt các package cần thiết.
     ```sh
-    npm install
+    npm run build
     ```
 
 4. Chỉnh sửa data trong package.json.

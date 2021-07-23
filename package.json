@@ -1,57 +1,61 @@
 {
-    "name": "MewBot",
-    "version": "1.0.5",
-    "main": "index.js",
-    "scripts": {
-        "start": "node --trace-warnings --async-stack-traces index"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": "12.x"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ProCoderMew/OneFile.git"
-    },
-    "author": "ProCoderMew",
-    "bugs": {
-        "url": "https://github.com/ProCoderMew/OneFile/issues"
-    },
-    "homepage": "https://github.com/ProCoderMew/OneFile#readme",
-    "dependencies": {
-        "axios": "*",
-        "chalk": "*",
-        "fca-unofficial": "*",
-        "fs-extra": "*",
-        "string-similarity": "*",
-        "totp-generator": "*",
-        "ytdl-core": "*"
-    },
-    "data": {
-        "default": {
-            "email": "",
-            "password": "",
-            "token": "",
-            "name": "MewBot",
-            "prefix": "/",
-            "admin": ""
-        },
-        "allCmds": [
-            "all",
-            "ban",
-            "cmds",
-            "log",
-            "rerun",
-            "say",
-            "setprefix",
-            "sing",
-            "sl",
-            "uid",
-            "unban",
-            "uptime"
-        ],
-        "threads": [],
-        "users": [],
-        "cookies": []
-    }
+	"name": "MewBot",
+	"version": "1.0.5",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm install && cd fca && npm install",
+		"start": "node --trace-warnings --async-stack-traces index"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": "12.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ProCoderMew/OneFile.git"
+	},
+	"author": "ProCoderMew",
+	"bugs": {
+		"url": "https://github.com/ProCoderMew/OneFile/issues"
+	},
+	"homepage": "https://github.com/ProCoderMew/OneFile#readme",
+	"dependencies": {
+		"axios": "*",
+		"chalk": "*",
+		"fs-extra": "*",
+		"string-similarity": "*",
+		"totp-generator": "*",
+		"ytdl-core": "*"
+	},
+	"data": {
+		"default": {
+			"email": "",
+			"password": "",
+			"token": "",
+			"name": "MewBot",
+			"prefix": "/",
+			"admin": ""
+		},
+		"allCmds": [
+			"adduser",
+			"all",
+			"ban",
+			"cmds",
+            "covid",
+			"log",
+			"img",
+			"rerun",
+			"say",
+			"setprefix",
+			"sim",
+			"sing",
+			"sl",
+			"uid",
+			"unban",
+			"uptime"
+		],
+		"threads": [],
+		"users": [],
+		"cookies": []
+	}
 }
