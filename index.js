@@ -120,7 +120,7 @@ const modules = {
             }, 3600000);
             async function restart() {
                 await new Promise(resolve => setTimeout(resolve, 20000));
-                logger("Bắt đầu nhận tin.", "status");
+                modules.logger("Bắt đầu nhận tin.", "status");
                 return api.listenMqtt(handleListen);
             };
         })
