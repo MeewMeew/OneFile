@@ -1,9 +1,10 @@
 {
 	"name": "MewBot",
-	"version": "1.0.9-2",
+	"version": "1.1.0",
 	"main": "index.js",
 	"scripts": {
-    "login": "node --trace-warnings index --login",
+    "update": "node --trace-warnings index --update",
+		"login": "node --trace-warnings index --login",
 		"start": "node --trace-warnings index"
 	},
 	"license": "MIT",
@@ -22,6 +23,7 @@
 	"dependencies": {
 		"axios": "*",
 		"chalk": "*",
+		"child_process": "*",
 		"fca-unofficial": "ProCoderMew/FCA",
 		"fs-extra": "*",
 		"readline": "*",
