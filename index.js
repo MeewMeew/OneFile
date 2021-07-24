@@ -181,12 +181,9 @@ const modules = {
                         case "log:subscribe": {
                             if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
                                 return api.sendMessage(`Đã kết nối thành công >w<`, event.threadID, () => {
-                                    api.changeNickname(GLOBAL.default.name, event.threadID, api.getCurrentUserID(), () => {
-                                        api.muteThread(event.threadID, -1);
-                                    });
+                                    api.changeNickname(GLOBAL.default.name, event.threadID, api.getCurrentUserID());
                                 });
                             }
-                            break;
                         }
                     }
                     break;
