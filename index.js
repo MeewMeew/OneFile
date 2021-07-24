@@ -117,8 +117,9 @@ const modules = {
                     password = pass;
                     rl.question("\n\x1b[0m\x1b[1m\x1b[35mNhập mã xác minh 2 lớp: \x1b[0m\x1b[1m", (code) => {
                         otp = code;
-                        console.clear();
+                        console.clear();                        
                         console.log("\n\x1b[46m===================================\x1b[0m\n");
+                        console.log("\x1b[1Đang đăng nhập..");
                         modules.loginFunction({ email, password, otp });
                         rl.close();
                     });
