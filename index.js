@@ -495,7 +495,7 @@ function Message({ api }) {
             //img
             if (args[0] == "img") {
                 var type;
-                switch (args[0]) {
+                switch (args[1]) {
                     case "boy":
                     case "trai":
                         type = "boy";
