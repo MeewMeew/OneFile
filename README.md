@@ -9,8 +9,6 @@
 
 - Bot này chỉ có 1 file thôi :)
 - Bot không nhiều tính lăng.
-- Có vài tính lăng cơ pản thôi :)
-- Tôi không có học code đâu, nên là nhiều bạn sẽ thấy code nhulon ấy =))
 
 # Installation
 
@@ -34,13 +32,16 @@
     ```
 
 4. Chỉnh sửa data trong package.json.
-    1. Tùy chỉnh email, password, token, tên bot, ...
+    1. Tùy chỉnh email, password, token (2fa key), tên bot, ...
     2. Lưu và đóng lại.
 
-5. Lấy cookie (appstate).
-    - Không có chỗ cho bạn điền mã xác thực đâu nên là nếu bạn có bật 2fa, hãy điền key vào phần token trong package.json.
-      Token có dạng: OCEBUBACEBENCIWEBWCNJABCEVB
-    - Nếu bạn có sẵn cookie từ trước, hãy dán vào phần cookie trong package.json.
+5. Lấy cookies (appstate).
+    - Lấy cookies bằng cách đăng nhập:
+        ```sh
+        node index --login
+        ```
+    
+    - Nếu bạn có sẵn cookies từ trước, hãy dán vào phần cookies trong package.json.
         - Lỗi khi thêm cookies:
             + Cookies có dạng
                 ```json
@@ -56,8 +57,7 @@
     ```sh
       npm start
     ```
-    - Đến đây thì bạn đã có 1 con bot, tất nhiên là nó không có gì thú vị cả =))
-    - Tùy bạn dùng và cảm nhận thôi chứ tôi thấy nhàm vcl =))
+    - Đến đây thì bạn đã có 1 con bot rồi =))
 
 - Termux
     - Xem script tại [đây](https://github.com/ProCoderMew/storage-data)

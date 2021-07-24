@@ -2,10 +2,16 @@ const axios = require("axios");
 const chalk = require("chalk");
 const login = require("fca-unofficial");
 const BigData = require("./package.json");
+const readline = require("readline");
 const totp = require("totp-generator");
 const ytdl = require("ytdl-core");
 const { writeFileSync, createReadStream, unlinkSync, createWriteStream } = require("fs-extra");
 var { data: botData } = BigData;
+
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
 const GLOBAL = {
     logEvent: false,
@@ -64,12 +70,21 @@ const modules = {
             modules.logger("Đã có lỗi xảy ra.", "update", 1);
         }
     },
-    loginWithEmail: function () {
-        return login({ email: botData.default.email, password: botData.default.password }, Data.loginEmailOptions, (err, api) => {
+    loginFunction: function ({ email, password, token, otp }) {
+        return login({ email, password }, Data.loginEmailOptions, (err, api) => {
             if (err) {
                 switch (err.error) {
                     case "login-approval":
-                        err.continue(totp(botData.default.token));
+                        if (otp) err.continue(otp);
+                        else if (token) err.continue(totp(token));
+                        else {
+                            rl.question("\x1b[0m\x1b[1m\x1b[35mNhập mã xác minh 2 lớp: \x1b[0m\x1b[1m", line => {
+                                err.continue(line);
+                                console.clear();
+                                console.log("\n\x1b[46m===================================\x1b[0m\n");
+                                rl.close();
+                            });
+                        }
                         break;
                     default:
                         if (process.env.API_SERVER_EXTERNAL == 'https://api.glitch.com') return modules.logger(err.error, "login", 1);
@@ -77,7 +92,6 @@ const modules = {
                             modules.logger(err.error, "login", 1);
                             return process.exit();
                         }
-                        break;
                 }
                 return;
             }
@@ -86,6 +100,33 @@ const modules = {
             modules.logger("Đã ghi thành công cookie mới.", "cookie");
             return modules.loginWithCookie();
         });
+    },
+    loginWithEmail: async function () {
+        var otp;
+        var email = botData.default.email;
+        var password = botData.default.password;
+        var token = botData.default.token.replace(/\s+/g, '');
+
+        if (email == "" || !email) {
+            console.log("\x1b[46m===================================\x1b[0m\n");
+            console.log("\x1b[1mNhập đầy đủ thông tin để đang nhập.\n");
+            console.log("\x1b[46m===================================\x1b[0m\n");
+            rl.question("\x1b[1m\x1b[32mNhập email: \x1b[0m\x1b[1m", (mail) => {
+                email = mail;
+                rl.question("\n\x1b[32mNhập password: \x1b[0m\x1b[1m", (pass) => {
+                    password = pass;
+                    rl.question("\n\x1b[0m\x1b[1m\x1b[35mNhập mã xác minh 2 lớp: \x1b[0m\x1b[1m", (code) => {
+                        otp = code;
+                        console.clear();
+                        console.log("\n\x1b[46m===================================\x1b[0m\n");
+                        modules.loginFunction({ email, password, otp });
+                        rl.close();
+                    });
+                });
+            });
+        } else {
+            return modules.loginFunction({ email, password, token });
+        }
     },
     loginWithCookie: async function () {
         return login({ appState: botData.cookies }, { pauseLog: true }, function (err, api) {
@@ -645,8 +686,23 @@ function noPrefix({ api }) {
 // Open Server
 require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);
 
-console.clear();
-modules.checkUpdate();
-// get cookie or start bot
-if (botData.cookies.length == 0) return modules.loginWithEmail();
-else return modules.loginWithCookie();
+(async function () {
+    console.clear();
+    // get cookie or start bot
+    switch (process.argv[2]) {
+        case '--login':
+        case '-l':
+            await modules.loginWithEmail();
+            break;
+        default:
+            if (botData.cookies.length == 0) {
+                await modules.loginWithEmail();
+                break;
+            }
+            else {
+                await modules.checkUpdate();
+                await modules.loginWithCookie();
+                break;
+            }
+    }
+})()
