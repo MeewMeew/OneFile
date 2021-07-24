@@ -38,7 +38,7 @@
 5. Lấy cookies (appstate).
     - Lấy cookies bằng cách đăng nhập:
         ```sh
-        node index --login
+        npm run login
         ```
     
     - Nếu bạn có sẵn cookies từ trước, hãy dán vào phần cookies trong package.json.

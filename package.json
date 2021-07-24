@@ -3,7 +3,8 @@
 	"version": "1.0.9-1",
 	"main": "index.js",
 	"scripts": {
-		"start": "node --trace-warnings --async-stack-traces index"
+    "login": "node --trace-warnings index --login",
+		"start": "node --trace-warnings index"
 	},
 	"license": "MIT",
 	"engines": {
