@@ -260,9 +260,13 @@ function Message({ api }) {
         if ((Object.keys(GLOBAL.threadData)).some(e => e == threadID) && GLOBAL.threadData[threadID].block == true && senderID != GLOBAL.default.admin) return;
         if ((Object.keys(GLOBAL.userData)).some(e => e == senderID) && GLOBAL.userData[senderID].block == true && senderID != GLOBAL.default.admin) return;
         // create thread
-        if (!(Object.keys(GLOBAL.threadData)).some(e => e == threadID)) return modules.createThread({ event, api });
+        if (!(Object.keys(GLOBAL.threadData)).some(e => e == threadID)) {
+            await modules.createThread({ event, api });
+        }
         // create user        
-        modules.createUser({ event, api });
+        await modules.createUser({ event, api });
+
+        //out
 
         var out = function (data, callback = function () { }, mid) {
             if (!data) return;
