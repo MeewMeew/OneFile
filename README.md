@@ -55,12 +55,20 @@
 
 6. Chạy bot.
     ```sh
-      npm start
+    npm start
     ```
     - Đến đây thì bạn đã có 1 con bot rồi =))
 
 - Termux
-    - Xem script tại [đây](https://github.com/ProCoderMew/storage-data)
+    - Xem script tại [đây](https://github.com/ProCoderMew/storage-data).
+
+# Update
+
+- Chạy lệnh sau ở command line/terminal.
+    ```sh
+    npm run update
+    ```
+- Quá trình update chỉ mất khoảng 15s.
 
 # Author
 
