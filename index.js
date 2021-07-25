@@ -121,7 +121,7 @@ const modules = {
                         otp = code;
                         console.clear();
                         console.log("\n\x1b[46m===================================\x1b[0m\n");
-                        console.log("\x1b[1Đang đăng nhập..");
+                        console.log("\x1b[1mĐang đăng nhập..");
                         modules.loginFunction({ email, password, otp });
                         rl.close();
                     });
