@@ -1,6 +1,6 @@
 {
 	"name": "MewBot",
-	"version": "1.1.1-1",
+	"version": "1.1.1-2",
 	"main": "index.js",
 	"scripts": {
 		"update": "node --trace-warnings index --update",
@@ -21,10 +21,10 @@
 	},
 	"homepage": "https://github.com/ProCoderMew/OneFile#readme",
 	"dependencies": {
+		"@procodermew/fca-onefile": "",
 		"axios": "*",
 		"chalk": "*",
 		"child_process": "*",
-		"fca-unofficial": "ProCoderMew/fca-unofficial#OneFile",
 		"fs-extra": "*",
 		"readline": "*",
 		"string-similarity": "*",

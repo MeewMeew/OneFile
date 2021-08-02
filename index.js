@@ -1,6 +1,6 @@
 const axios = require("axios");
 const chalk = require("chalk");
-const login = require("fca-unofficial");
+const login = require("@procodermew/fca-onefile");
 const BigData = require("./package.json");
 const readline = require("readline");
 const totp = require("totp-generator");
