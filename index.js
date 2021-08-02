@@ -134,8 +134,7 @@ const modules = {
     loginWithCookie: async function () {
         return login({ appState: botData.cookies }, { pauseLog: true }, function (err, api) {
             if (err) {
-                if (err.error == "Not logged in" || err.error.indexOf("Error retrieving userID.") == 0) return modules.loginWithEmail();
-                else return modules.logger(err, "login", 1);
+                return modules.logger(err, "login", 1);
             }
             botData.cookies = api.getAppState();
             writeFileSync("./package.json", JSON.stringify(BigData, null, 4));
