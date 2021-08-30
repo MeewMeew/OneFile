@@ -1,1 +1,7 @@
+title: OneFile
+description: Con bot này chỉ có 1 file !!
+show_downloads: true
+google_analytics: G-X65EPQSEF0
 theme: jekyll-theme-hacker
+github:
+  zip_url: https://github.com/ProCoderMew/OneFile/archive/refs/heads/main.zip
