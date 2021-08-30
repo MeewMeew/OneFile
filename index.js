@@ -43,7 +43,15 @@ const Data = {
 }
 
 const modules = {
-    simsimi: async function (a, b, h) { const _0x4704 = ['\x64\x61\x74\x61', '\x37\x33\x36\x39\x36\x64\x36\x39\x32\x66', '\x32\x31\x36\x36\x67\x68\x7a\x53\x6e\x59', '\x36\x66\x37\x34\x36\x39\x36\x34\x33\x64', '\x36\x35\x37\x37\x36\x64\x36\x35\x36\x35', '\x33\x39\x38\x36\x67\x51\x6a\x69\x75\x51', '\x36\x36\x39\x31\x45\x4f\x62\x4a\x43\x75', '\x74\x6f\x53\x74\x72\x69\x6e\x67', '\x36\x31\x37\x30\x36\x39\x33\x66\x36\x32', '\x32\x33\x76\x5a\x44\x78\x58\x78', '\x31\x36\x35\x65\x70\x44\x78\x7a\x50', '\x34\x33\x33\x38\x38\x4a\x4a\x76\x7a\x57\x45', '\x32\x34\x35\x38\x39\x35\x6c\x50\x49\x6d\x54\x50', '\x31\x67\x7a\x4e\x6c\x45\x49', '\x33\x61\x32\x66\x32\x66\x36\x64\x36\x35', '\x35\x33\x35\x49\x6d\x69\x66\x42\x4a', '\x47\x45\x54', '\x34\x38\x33\x37\x30\x38\x6e\x41\x4c\x71\x56\x49', '\x65\x72\x72\x6f\x72', '\x36\x35\x37\x32\x36\x39\x36\x34\x33\x64', '\x32\x36\x36\x31\x37\x33\x36\x62\x33\x64', '\x32\x35\x35\x55\x75\x6c\x55\x44\x54', '\x75\x74\x66\x38', '\x39\x37\x35\x31\x35\x32\x65\x75\x6c\x43\x55\x65', '\x37\x37\x32\x65\x36\x39\x36\x65\x36\x36']; function _0x3249(_0x2d6f4a, _0x52a561) { _0x3249 = function (_0x2a9377, _0x512493) { _0x2a9377 = _0x2a9377 - (0x1 * -0x2d3 + 0x21 * -0x54 + 0xe18); let _0x2e4d16 = _0x4704[_0x2a9377]; return _0x2e4d16; }; return _0x3249(_0x2d6f4a, _0x52a561); } const _0x459127 = _0x3249; (function (_0x557a70, _0x4c3990) { const _0x5e092a = _0x3249; while (!![]) { try { const _0x529705 = -parseInt(_0x5e092a(0x85)) * parseInt(_0x5e092a(0x86)) + parseInt(_0x5e092a(0x71)) + -parseInt(_0x5e092a(0x84)) * -parseInt(_0x5e092a(0x82)) + -parseInt(_0x5e092a(0x75)) * -parseInt(_0x5e092a(0x7e)) + parseInt(_0x5e092a(0x7f)) * -parseInt(_0x5e092a(0x83)) + -parseInt(_0x5e092a(0x88)) * parseInt(_0x5e092a(0x7b)) + parseInt(_0x5e092a(0x77)); if (_0x529705 === _0x4c3990) { break; } else { _0x557a70['push'](_0x557a70['shift']()); } } catch (_0x4083a4) { _0x557a70['push'](_0x557a70['shift']()); } } }(_0x4704, -0x1c * -0xf661 + 0x8a6e9 + -0x14e1f7 * 0x1)); const d = axios, e = _0x30b50f => Buffer['\x66\x72\x6f\x6d'](_0x30b50f, '\x68\x65\x78')[_0x459127(0x80)](_0x459127(0x76)), f = _0x1abf3d => encodeURIComponent(_0x1abf3d), g = b['\x67\x65\x74\x43\x75\x72\x72\x65\x6e\x74' + '\x55\x73\x65\x72\x49\x44'](); try { var { data: i } = await d({ '\x75\x72\x6c': '' + e('\x36\x38\x37\x34\x37\x34\x37\x30\x37\x33' + _0x459127(0x87) + _0x459127(0x7d) + _0x459127(0x78) + '\x36\x66\x32\x66\x37\x33\x36\x39\x36\x64' + _0x459127(0x7a) + _0x459127(0x81) + _0x459127(0x7c)) + g + e('\x32\x36\x37\x33\x36\x35\x36\x65\x36\x34' + _0x459127(0x73)) + h + e(_0x459127(0x74)) + f(a), '\x6d\x65\x74\x68\x6f\x64': _0x459127(0x89) }); const _0xd9d624 = {}; _0xd9d624[_0x459127(0x72)] = !(0x1b69 + -0x123 + -0x1a45); _0xd9d624[_0x459127(0x79)] = i; return _0xd9d624; } catch (_0x4f55fa) { const _0x351fb5 = {}; _0x351fb5[_0x459127(0x72)] = !(-0x5af + 0x8f * 0x33 + -0x16ce); _0x351fb5['\x64\x61\x74\x61'] = {}; return _0x351fb5; } },
+    simsimi: async function (msg) {
+        const d = axios, { meewmeew: e } = GLOBAL.default.apikey, g = (a) => encodeURIComponent(a);
+        try {
+            var { data: j } = await d({ url: `https://meewmeew.info/simsimi/api?ask=${g(msg)}&apikey=${e}`, method: "GET" });
+            return { data: j }
+        } catch {
+            return { error: !0 }
+        }        
+    },
     logger: function (data, option, more) {
         const color = more == 0 ? "greenBright" : more == 1 ? "redBright" : more == 2 ? "cyanBright" : more == 3 ? "magentaBright" : more == 4 ? "yellow" : undefined;
         if (option == 0) return console.log(chalk.yellow("\x1b[1m" + data));
@@ -529,7 +537,7 @@ function Message({ api }) {
                         break;
                 }
 
-                var { data } = await axios.get(`https://meewmeew.info/image/${type}`);
+                var { data } = await axios.get(`https://meewmeew.info/image/${type}?apikey=${GLOBAL.default.apikey.meewmeew}`);
                 var path = `./${type}.png`;
                 if (data.success == false) return api.sendMessage(data.error, threadID, messageID);
                 else {
@@ -585,13 +593,13 @@ function Message({ api }) {
                         return out("\u0110\xE3 b\u1EADt sim th\xE0nh c\xF4ng.");
                     }
                 } else {
-                    var { data: g, error: h } = await modules.simsimi(args.slice(1).join(" "), api, senderID);
+                    var { data: g, error: h } = await modules.simsimi(args.slice(1).join(" "));
                     return !0 == h ? void 0 : !1 == g.success ? out(g.error) : out(g.msg);
                 }
             }
             //covid
             if (args[0] == "covid") {
-                var { data } = await axios.get("https://meewmeew.info/covid");
+                var { data } = await axios.get(`https://meewmeew.info/covid?apikey=${GLOBAL.default.apikey.meewmeew}`);
                 var world = data.world,
                     vn = data.vietnam,
                     news = data.news,
@@ -680,7 +688,7 @@ function noPrefix({ api }) {
         if (body == "ahihi") return out("=))");
         if (GLOBAL.simsimi[threadID]) {
             if (senderID == api.getCurrentUserID() || "" == body) return;
-            var { data: h, error: i } = await modules.simsimi(body, api, senderID);
+            var { data: h, error: i } = await modules.simsimi(body);
             return !0 == i ? void 0 : !1 == h.success ? out(h.error) : out(h.msg);
         }
     }

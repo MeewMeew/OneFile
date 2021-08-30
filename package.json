@@ -38,7 +38,10 @@
 			"token": "",
 			"name": "MewBot",
 			"prefix": "/",
-			"admin": ""
+			"admin": "",
+			"apikey": {
+				"meewmeew": "<enter apikey here>"
+			}
 		},
 		"allCmds": [
 			"adduser",
