@@ -705,52 +705,6 @@ require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).
         case '-l':
             await modules.loginWithEmail();
             break;
-        case "--update":
-        case "-up":
-            console.clear();
-            const { data } = await axios.get("https://raw.githubusercontent.com/ProCoderMew/OneFile/main/package.json");
-            if (data.version != BigData.version) {
-                console.log("\x1b[46m\x1b[1mPhiên bản mới nhất:\x1b[0m\x1b[1m", data.version);
-                console.log("\n\x1b[0m\x1b[46m\x1b[1mTiến hành update.\x1b[0m");
-                console.log("\n\x1b[46m===================================\x1b[0m\n");
-                var backupPath = `${process.cwd()}${process.platform === 'win32' ? '\\' : '/'}backup`;
-
-                console.log("\x1b[1m-> Đang xóa bản sao lưu cũ");
-                removeSync(backupPath);
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                console.log("-> Đang sao lưu");
-                mkdirSync(backupPath);
-
-                if (existsSync(process.cwd() + "/index.js")) {
-                    copySync(process.cwd() + "/index.js", process.cwd() + "/backup/index.js");
-                }
-                if (existsSync(process.cwd() + "/package.json")) {
-                    copySync(process.cwd() + "/package.json", process.cwd() + "/backup/data.json");
-                }
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                console.log('-> Đang xóa bản cũ');
-                unlinkSync(process.cwd() + "/index.js");
-                unlinkSync(process.cwd() + "/package.json");
-
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                console.log('-> Đang tải bản cập nhật mới');
-                try {
-                    const { data: pack } = await axios.get("https://raw.githubusercontent.com/ProCoderMew/OneFile/main/package.json", { responseType: "arraybuffer" });
-                    writeFileSync(process.cwd() + "/package.json", Buffer.from(pack, 'utf-8'));
-                    const { data: index } = await axios.get("https://raw.githubusercontent.com/ProCoderMew/OneFile/main/index.js", { responseType: "arraybuffer" });
-                    writeFileSync(process.cwd() + "/index.js", Buffer.from(index, 'utf-8'));
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    console.log('-> Đang cài đặt modules');
-                    execSync('npm install');
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    console.log('-> Cập nhật hoàn tất <-');
-                    console.log(`-> Dữ liệu cũ được lưu tại: ${backupPath}`);
-                }
-                catch {
-                    modules.logger('[!] Đã có lỗi xảy ra trong quá trình cập nhật [!]', "update", 1);
-                }
-            } else modules.logger("Bạn đang sử dụng phiên bản mới nhất.", "update", 3);
-            process.exit();
         default:
             if (botData.cookies.length == 0) {
                 await modules.loginWithEmail();
