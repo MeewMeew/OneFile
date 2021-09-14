@@ -3,7 +3,6 @@
 	"version": "1.1.1-4",
 	"main": "index.js",
 	"scripts": {
-		"update": "node --trace-warnings index --update",
 		"login": "node --trace-warnings index --login",
 		"start": "node --trace-warnings index"
 	},
@@ -30,6 +29,9 @@
 		"string-similarity": "*",
 		"totp-generator": "*",
 		"ytdl-core": "*"
+	},
+	"devDependencies": {
+		"@procodermew/meewmeew-cli"
 	},
 	"data": {
 		"default": {
