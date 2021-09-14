@@ -66,7 +66,7 @@
 
 - Chạy lệnh sau ở command line/terminal.
     ```sh
-    npm run update
+    meewmeew --onefile --update
     ```
 - Quá trình update chỉ mất khoảng 15s.
 
