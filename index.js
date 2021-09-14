@@ -74,7 +74,7 @@ const modules = {
         try {
             const { data } = await axios.get("https://raw.githubusercontent.com/ProCoderMew/OneFile/main/package.json");
             if (data.version != BigData.version) {
-                modules.logger("Đã có bản cập nhật mới. Sử dụng 'npm run update' để cập nhật.", "update", 1);
+                modules.logger("Đã có bản cập nhật mới. Sử dụng 'meewmeew --onefile --update' để cập nhật.", "update", 1);
             } else modules.logger("Bạn đang sử dụng phiên bản mới nhất.", "update", 3);
         } catch {
             modules.logger("Đã có lỗi xảy ra.", "update", 1);
