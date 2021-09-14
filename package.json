@@ -1,70 +1,53 @@
 {
-	"name": "MewBot",
-	"version": "1.1.1-4",
-	"main": "index.js",
-	"scripts": {
-		"login": "node --trace-warnings index --login",
-		"start": "node --trace-warnings index"
-	},
-	"license": "MIT",
-	"engines": {
-		"node": "12.x"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ProCoderMew/OneFile.git"
-	},
-	"author": "ProCoderMew",
-	"bugs": {
-		"url": "https://github.com/ProCoderMew/OneFile/issues"
-	},
-	"homepage": "https://github.com/ProCoderMew/OneFile#readme",
-	"dependencies": {
-		"@procodermew/fca-onefile": "",
-		"axios": "*",
-		"chalk": "*",
-		"child_process": "*",
-		"fs-extra": "*",
-		"readline": "*",
-		"string-similarity": "*",
-		"totp-generator": "*",
-		"ytdl-core": "*"
-	},
-	"devDependencies": {
-		"@procodermew/meewmeew-cli"
-	},
-	"data": {
-		"default": {
-			"email": "",
-			"password": "",
-			"token": "",
-			"name": "MewBot",
-			"prefix": "/",
-			"admin": "",
-			"apikey": {
-				"meewmeew": "<enter apikey here>"
-			}
-		},
-		"allCmds": [
-			"adduser",
-			"all",
-			"ban",
-			"cmds",
-			"covid",
-			"log",
-			"img",
-			"rerun",
-			"say",
-			"setprefix",
-			"sim",
-			"sing",
-			"sl",
-			"uid",
-			"unban",
-			"uptime"
-		],
-		"threads": [],
-		"users": [],
-		"cookies": []
-	}
+    "name": "MewBot",
+    "version": "1.1.2",
+    "main": "index.js",
+    "scripts": {
+        "login": "node --trace-warnings index --login",
+        "start": "node --trace-warnings index"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": "12.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ProCoderMew/OneFile.git"
+    },
+    "author": "ProCoderMew",
+    "bugs": {
+        "url": "https://github.com/ProCoderMew/OneFile/issues"
+    },
+    "homepage": "https://github.com/ProCoderMew/OneFile#readme",
+    "dependencies": {
+        "@procodermew/fca-onefile": "",
+        "axios": "*",
+        "chalk": "*",
+        "child_process": "*",
+        "fs-extra": "*",
+        "readline": "*",
+        "string-similarity": "*",
+        "totp-generator": "*",
+        "ytdl-core": "*"
+    },
+    "devDependencies": {
+        "@procodermew/meewmeew-cli": ""
+    },
+    "data": {
+        "default": {
+            "email": "",
+            "password": "",
+            "token": "",
+            "name": "MewBot",
+            "prefix": "/",
+            "admin": "",
+            "apikey": {
+                "meewmeew": "<enter apikey here>"
+            }
+        },
+        "allCmds": ["adduser", "all", "ban", "cmds", "covid", "log", "img", "rerun", "say", "setprefix", "sim", "sing", "sl", "uid", "unban", "uptime"],
+        "threads": [],
+        "users": [],
+        "cookies": []
+    }
 }
