@@ -32,13 +32,11 @@ const Data = {
         listenEvents: true,
         logLevel: "error",
         updatePresence: true,
-        selfListen: true,
-        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
+        selfListen: true
     },
     loginEmailOptions: {
         logLevel: "silent",
-        forceLogin: true,
-        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
+        forceLogin: true
     }
 }
 
