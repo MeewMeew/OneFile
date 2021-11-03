@@ -22,8 +22,7 @@ const GLOBAL = {
     userData: {},
     default: botData.default,
     wait: false,
-    simsimi: {},
-    event: { id: '', messageID: '' }
+    simsimi: {}
 };
 
 const Data = {
@@ -32,11 +31,13 @@ const Data = {
         listenEvents: true,
         logLevel: "error",
         updatePresence: true,
-        selfListen: true
+        selfListen: true,
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
     },
     loginEmailOptions: {
         logLevel: "silent",
-        forceLogin: true
+        forceLogin: true,
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
     }
 }
 
@@ -142,6 +143,7 @@ const modules = {
             if (err) {
                 return modules.logger(err, "login", 1);
             }
+            var prevEvent;
             botData.cookies = api.getAppState();
             writeFileSync("./package.json", JSON.stringify(BigData, null, 4));
             api.setOptions(Data.loginCookieOptions);
@@ -153,14 +155,11 @@ const modules = {
             const handleListen = function (error, event) {
                 if (error) return modules.logger(error.error, "listen", 1);
                 if (temp.includes(event.type)) return;
-                if (GLOBAL.event.id == api.getCurrentUserID() &&
-                    GLOBAL.event.messageID == event.messageID) {
-                    api.listenMqtt().stopListening();
-                }
-                listen(event);
-                if (GLOBAL.logEvent == true) console.log(event);
-                GLOBAL.event.id = event.senderID || '';
-                GLOBAL.event.messageID = event.messageID || '';
+                if (prevEvent?.timestamp == event.timestamp)
+                    await api.listenMqtt().stopListening();
+                prevEvent = event;
+                listen(prevEvent);
+                if (GLOBAL.logEvent == true) console.log(prevEvent);
             };
             api.listenMqtt(handleListen);
             setInterval(async function () {
