@@ -152,7 +152,7 @@ const modules = {
             modules.logger("Bắt đầu nhận tin.", "status");
             const listen = modules.listen({ api });
             const temp = ["presence", "typ", "read_receipt"];
-            const handleListen = function (error, event) {
+            const handleListen = async function (error, event) {
                 if (error) return modules.logger(error.error, "listen", 1);
                 if (temp.includes(event.type)) return;
                 if (prevEvent?.timestamp == event.timestamp)
