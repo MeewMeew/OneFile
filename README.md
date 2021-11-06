@@ -14,8 +14,8 @@
 
 - Yêu cầu: 
 	- Nodejs >= 12
-	- 1 tài khoản facebook, bật 2fa xác thực bằng ứng dụng đi =)) tránh pay acc.
-	- Hết rồi =))
+	- 1 tài khoản facebook, bật 2fa tránh pay acc.
+	- Hết rồi :).
 
 - Cài đặt:
 
@@ -42,25 +42,16 @@
         ```
     
     - Nếu bạn có sẵn cookies từ trước, hãy dán vào phần cookies trong package.json.
-        - Lỗi khi thêm cookies:
-            + Cookies có dạng
-                ```json
-                [{}, {}, {}, {}]
-                ```
-            + Nhầm lẫn: 
-                ```json
-                [[{}, {}, {}]]
-                ```
-    - Xong rồi thì sang bước 6 =)).
+    - Extension lấy cookies: [fbstate](https://github.com/c3cbot/c3c-fbstate).
 
 6. Chạy bot.
     ```sh
     npm start
     ```
-    - Đến đây thì bạn đã có 1 con bot rồi =))
+    - Đến đây thì bạn đã có 1 con bot rồi :D
 
-- Termux
-    - Xem script tại [đây](https://github.com/ProCoderMew/storage-data).
+- Support Termux
+    - Xem script [tại đây](https://github.com/ProCoderMew/storage-data).
 
 # Update
 
@@ -81,7 +72,7 @@
 
 # Author
 
-- **ProCoderMew** - [GitHub](https://github.com/ProCoderMew) - [Facebook](https://www.facebook.com/ProCoder.Mew)
+- **ProCoderMew** - [GitHub](https://github.com/ProCoderMew) - [Facebook](https://www.facebook.com/ProCoder.Mew) - [Website](https://meewmeew.info)
 
 # License
 
