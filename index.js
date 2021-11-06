@@ -155,8 +155,9 @@ const modules = {
             const handleListen = async function (error, event) {
                 if (error) return modules.logger(error.error, "listen", 1);
                 if (temp.includes(event.type)) return;
-                if (prevEvent?.timestamp == event.timestamp)
+                if (prevEvent && prevEvent.timestamp == event.timestamp)
                     await api.listenMqtt().stopListening();
+                    await new Promise(e => setTimeout(e, 2000));
                 prevEvent = event;
                 listen(prevEvent);
                 if (GLOBAL.logEvent == true) console.log(prevEvent);
@@ -691,11 +692,10 @@ function noPrefix({ api }) {
     }
 }
 
-// Open Server
-require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);
-
 (async function () {
-    console.clear();
+    // Open Server
+    if (process.env.API_SERVER_EXTERNAL || process.env.REPL_ID) require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).listen(process.env.PORT || 3000);    
+    console.log("\u001Bc");
     // get cookie or start bot
     switch (process.argv[2]) {
         case '--login':
@@ -711,6 +711,6 @@ require('http').createServer((_, res) => res.writeHead(200).end("Hello World")).
                 await modules.checkUpdate();
                 await modules.loginWithCookie();
                 break;
-            }
+            }            
     }
 })()
